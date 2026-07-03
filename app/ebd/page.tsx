@@ -1,3 +1,24 @@
 export default function EbdPage() {
-  return <section className="container-page py-16"><span className="badge bg-sol/40">Escola Bíblica Dominical</span><h1 className="section-title mt-5">EBD Infantil</h1><p className="section-subtitle">Ensino da Palavra de Deus com histórias bíblicas, louvores, memorização de versículos, oração, atividades manuais e linguagem adequada para cada idade.</p><div className="mt-10 grid gap-6 md:grid-cols-3"><div className="card p-6"><h3 className="text-2xl font-black">Classes por idade</h3><p className="mt-3 text-slate-700">Organização por faixas etárias para melhor aprendizado.</p></div><div className="card p-6"><h3 className="text-2xl font-black">Aulas criativas</h3><p className="mt-3 text-slate-700">Dinâmicas, desenhos, brincadeiras e aplicações práticas.</p></div><div className="card p-6"><h3 className="text-2xl font-black">Família junto</h3><p className="mt-3 text-slate-700">Comunicação com responsáveis e incentivo à vida devocional em casa.</p></div></div></section>;
+  const itens = [
+    ['Classes por idade', 'Organizacao por faixas etarias para melhor aprendizado.'],
+    ['Aulas criativas', 'Historias biblicas, dinamicas, desenhos e aplicacoes praticas.'],
+    ['Familia junto', 'Comunicacao com responsaveis e incentivo a vida devocional em casa.'],
+  ];
+  return (
+    <section className="section">
+      <div className="container-page">
+        <span className="badge">Escola Biblica Dominical</span>
+        <h1 className="section-title" style={{ marginTop: 18 }}>EBD Infantil</h1>
+        <p className="section-subtitle">Ensino da Palavra de Deus com historias biblicas, louvores, memorizacao de versiculos, oracao, atividades manuais e linguagem adequada para cada idade.</p>
+        <div className="grid-3" style={{ marginTop: 32 }}>
+          {itens.map(([titulo, texto]) => (
+            <div className="card feature" key={titulo}>
+              <h3>{titulo}</h3>
+              <p>{texto}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }
