@@ -1,2 +1,26 @@
 import { cantina, whatsappNumber } from '@/lib/data';
-export default function CantinaPage(){ const msg=encodeURIComponent('Olá! Quero informações da Cantina dos Pequenos Adoradores.'); return <section className="container-page py-16"><span className="badge bg-coral/20">Arrecadação</span><h1 className="section-title mt-5">Cantina dos Pequenos Adoradores</h1><p className="section-subtitle">Cada compra ajuda nos eventos, materiais e projetos das crianças.</p><div className="mt-10 grid gap-6 md:grid-cols-3">{cantina.map(c=><div className="card p-6" key={c.item}><h3 className="text-2xl font-black">{c.item}</h3><p className="mt-2 text-3xl font-black text-coral">{c.preco}</p><p className="mt-3 text-slate-700">{c.desc}</p></div>)}</div><a className="btn-primary mt-10" href={`https://wa.me/${whatsappNumber}?text=${msg}`}>Fazer pedido pelo WhatsApp</a></section>}
+
+export default function CantinaPage() {
+  const msg = encodeURIComponent('Quero informacoes da Cantina dos Pequenos Adoradores.');
+  return (
+    <section className="section">
+      <div className="container-page">
+        <span className="badge">Arrecadacao</span>
+        <h1 className="section-title">Cantina dos Pequenos Adoradores</h1>
+        <p className="section-subtitle">Cada compra ajuda nos eventos, materiais e projetos das criancas.</p>
+        <div className="grid-3">
+          {cantina.map((c) => (
+            <div className="card feature" key={c.item}>
+              <h3>{c.item}</h3>
+              <strong className="price">{c.preco}</strong>
+              <p>{c.desc}</p>
+            </div>
+          ))}
+        </div>
+        <div className="actions">
+          <a className="btn-primary" href={`https://wa.me/${whatsappNumber}?text=${msg}`}>Fazer pedido pelo WhatsApp</a>
+        </div>
+      </div>
+    </section>
+  );
+}
