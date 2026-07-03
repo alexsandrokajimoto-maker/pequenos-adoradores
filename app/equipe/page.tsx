@@ -1,3 +1,31 @@
 import { tios, whatsappNumber } from '@/lib/data';
 import { VolunteerForm } from '@/components/VolunteerForm';
-export default function EquipePage(){ return <section className="container-page py-16"><span className="badge bg-céu/20">Servir com amor</span><h1 className="section-title mt-5">Tios, Tias e Voluntários</h1><p className="section-subtitle">Nossa equipe serve com dedicação para acolher, ensinar e cuidar dos pequenos adoradores do Senhor.</p><div className="mt-10 grid gap-6 md:grid-cols-4">{tios.map(t=><div className="card p-6 text-center" key={t.nome}><div className={`mx-auto grid h-24 w-24 place-items-center rounded-full ${t.cor} text-3xl font-black text-white`}>{t.nome.split(' ')[1]?.[0] ?? 'P'}</div><h3 className="mt-5 text-xl font-black">{t.nome}</h3><p className="mt-2 text-slate-700">{t.funcao}</p></div>)}</div><div className="mt-14 grid gap-8 lg:grid-cols-2"><div className="card p-8"><h2 className="text-3xl font-black">Quero fazer parte da equipe</h2><p className="mt-4 text-slate-700">Preencha seus dados. O formulário pode salvar no Supabase quando configurado e também gerar contato pelo WhatsApp.</p><a className="btn-secondary mt-6" href={`https://wa.me/${whatsappNumber}`}>Falar com a equipe</a></div><VolunteerForm /></div></section> }
+
+export default function EquipePage() {
+  return (
+    <section className="section">
+      <div className="container-page">
+        <span className="badge">Servir com amor</span>
+        <h1 className="section-title">Tios, Tias e Voluntarios</h1>
+        <p className="section-subtitle">Nossa equipe serve com dedicacao para acolher, ensinar e cuidar dos pequenos adoradores do Senhor.</p>
+        <div className="grid-3">
+          {tios.map((t) => (
+            <div className="card feature" key={t.nome}>
+              <div className="hero-symbol" style={{ width: 82, height: 82, fontSize: 30 }}>👤</div>
+              <h3>{t.nome}</h3>
+              <p>{t.funcao}</p>
+            </div>
+          ))}
+        </div>
+        <div className="grid-2" style={{ marginTop: 42 }}>
+          <div className="card feature">
+            <h2>Quero fazer parte da equipe</h2>
+            <p>Preencha seus dados. O formulario registra o interesse e abre o WhatsApp para contato com a equipe.</p>
+            <div className="actions"><a className="btn-secondary" href={`https://wa.me/${whatsappNumber}`}>Falar com a equipe</a></div>
+          </div>
+          <VolunteerForm />
+        </div>
+      </div>
+    </section>
+  );
+}
