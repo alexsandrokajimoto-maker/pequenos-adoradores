@@ -1,2 +1,22 @@
 import { cursos } from '@/lib/data';
-export default function CursosPage(){return <section className="container-page py-16"><span className="badge bg-folha/25">Setor 23</span><h1 className="section-title mt-5">Cursos no Setor 23</h1><p className="section-subtitle">Capacitações para crianças, adolescentes, terceira idade e voluntários.</p><div className="mt-10 grid gap-6 md:grid-cols-2">{cursos.map(c=><div className="card p-6" key={c.titulo}><span className="badge bg-sol/40">{c.publico}</span><h3 className="mt-4 text-2xl font-black">{c.titulo}</h3><p className="mt-3 text-slate-700">{c.desc}</p></div>)}</div></section>}
+
+export default function CursosPage() {
+  return (
+    <section className="section">
+      <div className="container-page">
+        <span className="badge">Setor 23</span>
+        <h1 className="section-title">Cursos no Setor 23</h1>
+        <p className="section-subtitle">Capacitacoes para criancas, adolescentes, terceira idade e voluntarios.</p>
+        <div className="grid-2">
+          {cursos.map((c) => (
+            <div className="card feature" key={c.titulo}>
+              <span className="badge">{c.publico}</span>
+              <h3>{c.titulo}</h3>
+              <p>{c.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
